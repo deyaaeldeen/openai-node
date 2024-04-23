@@ -6,7 +6,6 @@ import { type Agent } from './_shims/index';
 import * as Uploads from './uploads';
 import * as Pagination from 'openai/pagination';
 import * as API from 'openai/resources/index';
-import { getAzureOpenAI, AzureClientOptions } from './lib/azure/azure';
 
 export interface ClientOptions {
   /**
@@ -311,7 +310,8 @@ export namespace OpenAI {
   export import FunctionParameters = API.FunctionParameters;
 }
 
+export default OpenAI;
+
+import { getAzureOpenAI, AzureClientOptions } from './lib/azure/azure';
 const AzureOpenAI = getAzureOpenAI(OpenAI);
 export { AzureOpenAI, AzureClientOptions };
-
-export default OpenAI;
