@@ -29,7 +29,7 @@ export interface AzureClientOptions extends ClientOptions {
 }
 
 /** API Client for interfacing with the Azure OpenAI API. */
-export const createAzureMixin = (
+export const getAzureOpenAI = (
   OpenAI: new (opts?: ClientOptions) => OpenAI,
 ): new (opts?: AzureClientOptions) => OpenAI & { apiVersion: string } =>
   class AzureOpenAI extends OpenAI {
