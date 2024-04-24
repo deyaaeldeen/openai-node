@@ -312,6 +312,7 @@ export namespace OpenAI {
 
 export default OpenAI;
 
+// These lines are not auto-generated, Do not remove these lines.
 import { getAzureOpenAI, AzureClientOptions } from './lib/azure/azure';
 const AzureOpenAI = getAzureOpenAI(OpenAI);
 export { AzureOpenAI, AzureClientOptions };
