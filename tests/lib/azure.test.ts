@@ -277,7 +277,7 @@ describe('instantiate azure client', () => {
 describe('azure request building', () => {
   const client = new AzureOpenAI({ baseURL: 'https://example.com', apiKey: 'My API Key', apiVersion });
 
-  describe.only('model to deployment mapping', function () {
+  describe('model to deployment mapping', function () {
     const testFetch = async (url: RequestInfo): Promise<Response> => {
       return new Response(JSON.stringify({ url }), { headers: { 'content-type': 'application/json' } });
     };
