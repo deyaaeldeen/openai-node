@@ -14,7 +14,7 @@ export class OpenAIRealtimeWS extends OpenAIRealtimeEmitter {
     super();
     client ??= new OpenAI();
 
-    this.url = buildRealtimeURL({ baseURL: client.baseURL, model: props.model });
+    this.url = buildRealtimeURL(client, props.model);
     this.socket = new WS.WebSocket(this.url, {
       ...props.options,
       headers: {
