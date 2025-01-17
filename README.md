@@ -147,6 +147,7 @@ To use the web API `WebSocket` implementation, replace `OpenAIRealtimeWS` with `
 import { OpenAIRealtimeWebSocket } from 'openai/beta/realtime/websocket';
 
 const rt = new OpenAIRealtimeWebSocket({ model: 'gpt-4o-realtime-preview-2024-12-17' });
+await rt.open();
 // ...
 rt.socket.addEventListener('open', () => {
  // ...
@@ -499,7 +500,7 @@ const credential = new DefaultAzureCredential();
 const scope = 'https://cognitiveservices.azure.com/.default';
 const azureADTokenProvider = getBearerTokenProvider(credential, scope);
 
-const openai = new AzureOpenAI({ azureADTokenProvider });
+const openai = new AzureOpenAI({ azureADTokenProvider, apiVersion: "<The API version, e.g. 2024-10-01-preview>" });
 
 const result = await openai.chat.completions.create({
   model: 'gpt-4o',

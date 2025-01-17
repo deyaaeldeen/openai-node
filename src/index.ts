@@ -594,7 +594,7 @@ export class AzureOpenAI extends OpenAI {
     return super.buildRequest(options);
   }
 
-  private async _getAzureADToken(): Promise<string | undefined> {
+  async getAzureADToken(): Promise<string | undefined> {
     if (typeof this._azureADTokenProvider === 'function') {
       const token = await this._azureADTokenProvider();
       if (!token || typeof token !== 'string') {
@@ -621,7 +621,7 @@ export class AzureOpenAI extends OpenAI {
     if (opts.headers?.['api-key']) {
       return super.prepareOptions(opts);
     }
-    const token = await this._getAzureADToken();
+    const token = await this.getAzureADToken();
     opts.headers ??= {};
     if (token) {
       opts.headers['Authorization'] = `Bearer ${token}`;
